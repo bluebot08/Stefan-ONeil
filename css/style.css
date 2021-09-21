@@ -1,6 +1,6 @@
-* {
+/* * {
   min-width: 480px;
-}
+} */
 
 body {
   color: #40514e;
@@ -122,13 +122,13 @@ p {
 }
 .top-cloud {
   position: absolute;
-  top: 50px;
-  right: 300px;
+  top: 10%;
+  left: 0;
 }
 .bottom-cloud {
   position: absolute;
-  left: 300px;
-  bottom: 300px;
+  right: 0;
+  bottom: 20%;
 }
 .footer-link {
   margin: 0 10px 0 10px;
