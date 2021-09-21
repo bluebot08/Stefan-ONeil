@@ -3,6 +3,7 @@ body {
   margin: 0;
   text-align: center;
   font-family: "Kaisei Tokumin", serif;
+  overflow-x: none;
 }
 h1 {
   color: #66bfbf;
