@@ -48,6 +48,8 @@ p {
   background-color: #eaf6f6;
   position: relative;
   padding-top: 100px;
+  height: 80vh;
+  width: 100vw;
 }
 
 /* Expanding Card Section */
