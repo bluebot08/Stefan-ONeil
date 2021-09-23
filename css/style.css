@@ -297,7 +297,7 @@ nav ul li i {
 }
 
 nav ul li + li {
-  margin-left: 25px;
+  margin-left: 50px;
   transform: translateX(-250%);
 }
 
