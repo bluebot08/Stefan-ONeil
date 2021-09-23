@@ -9,6 +9,11 @@ body {
   font-family: "Kaisei Tokumin", serif;
   overflow-x: none;
 }
+
+body.hidden-nav {
+  background-color: #66bfbf;
+}
+
 h1 {
   color: #66bfbf;
   font-family: "Caveat", cursive;
@@ -31,9 +36,15 @@ a {
   font-family: "Kaisei HarunoUmi", serif;
   text-decoration: none;
 }
+
 a:hover {
   color: #eaf6f6;
 }
+
+ul a {
+  color: black;
+}
+
 hr {
   border-style: dotted none none none;
   border-width: 10px;
@@ -150,6 +161,7 @@ p {
   margin-left: 30px;
 }
 
+/* contact buttons */
 .Contact_Button {
   margin: 20px;
   background: #66bfbf;
@@ -189,4 +201,126 @@ p {
   -moz-border-radius: 20px;
   border-radius: 20px;
   text-decoration: none;
+}
+
+/* Rotating Navigation */
+.rotating-container {
+  background-color: #fafafa;
+  transform-origin: top left;
+  transition: transform 0.5s linear;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 50px;
+}
+
+.rotating-container.show-nav {
+  transform: rotate(-20deg);
+}
+
+.circle-container {
+  position: fixed;
+  top: -100px;
+  left: -100px;
+}
+
+.circle {
+  background-color: #ff7979;
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  position: relative;
+  transition: transform 0.5s linear;
+}
+
+.rotating-container.show-nav .circle {
+  transform: rotate(-70deg);
+}
+
+.circle button {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 100px;
+  background: transparent;
+  border: 0;
+  font-size: 26px;
+  color: #fff;
+}
+
+.circle button:focus {
+  outline: none;
+}
+
+.circle button#open {
+  left: 60%;
+}
+
+.circle button#close {
+  top: 60%;
+  transform: rotate(90deg);
+  transform-origin: top left;
+}
+
+.rotating-container img {
+  max-width: 100%;
+}
+
+.rotating-container.show-nav + nav li {
+  transform: translateX(0);
+  transition-delay: 0.3s;
+}
+
+nav {
+  position: fixed;
+  bottom: 40px;
+  left: 0px;
+  z-index: 100;
+}
+
+nav ul {
+  list-style-type: none;
+  padding-left: 30px;
+}
+
+nav ul li {
+  text-transform: uppercase;
+  color: black;
+  margin: 40px 0;
+  transform: translateX(-200%);
+  transition: transform 0.4s ease-in;
+}
+
+nav ul li i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+nav ul li + li {
+  margin-left: 25px;
+  transform: translateX(-250%);
+}
+
+nav ul li + li + li {
+  margin-left: 100px;
+  transform: translateX(-300%);
+}
+
+.content {
+  max-width: 1000px;
+  margin: 50px auto;
+}
+
+.content h1 {
+  margin: 0;
+}
+
+.content small {
+  color: #555;
+  font-style: italic;
+}
+
+.content p {
+  color: #333;
+  line-height: 1.5;
 }
