@@ -210,7 +210,7 @@ p {
   transition: transform 0.5s linear;
   width: 100vw;
   min-height: 100vh;
-  padding: 50px;
+  padding: 50px 50px 50px 0;
 }
 
 .rotating-container.show-nav {
@@ -327,6 +327,11 @@ nav ul li + li + li {
 
 /* Metrics.html */
 
+.content img {
+  width: 400px;
+  height: 400px;
+}
+
 .metric-img {
   width: 400px;
   height: 400px;
@@ -344,14 +349,14 @@ body.metrics {
 }
 
 .box {
-  background-color: steelblue;
+  /* background-color: steelblue; */
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 400px;
-  height: 200px;
-  margin: 150px 250px;
+  /* width: 200px;
+  height: 200px; */
+  margin: 10px;
   border-radius: 10px;
   /* box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.3); */
   transform: translateX(400%);
