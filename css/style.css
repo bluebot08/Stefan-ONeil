@@ -7,7 +7,7 @@ body {
   margin: 0;
   text-align: center;
   font-family: "Kaisei Tokumin", serif;
-  overflow-x: none;
+  overflow-x: hidden;
 }
 
 body.hidden-nav {
@@ -333,7 +333,7 @@ nav ul li + li + li {
 }
 
 .metric-img {
-  width: 400px;
+  width: 350px;
   height: 400px;
 }
 
