@@ -328,8 +328,8 @@ nav ul li + li + li {
 /* Metrics.html */
 
 .metric-img {
-  width: 80%;
-  height: 40%;
+  width: 400px;
+  height: 400px;
 }
 
 body.metrics {
