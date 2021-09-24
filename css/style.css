@@ -224,7 +224,7 @@ p {
 }
 
 .circle {
-  background-color: #ff7979;
+  background-color: #66bfbf;
   height: 200px;
   width: 200px;
   border-radius: 50%;
@@ -326,6 +326,11 @@ nav ul li + li + li {
 }
 
 /* Metrics.html */
+
+.metric-img {
+  width: 500px;
+  height: 300px;
+}
 
 body.metrics {
   background-color: #efedd6;
