@@ -395,5 +395,5 @@ body.metrics {
 .typewriter-text {
   overflow: hidden; /* Ensures the text is not displayed outside the box */
   white-space: nowrap; /* Prevents the text from wrapping */
-  animation: typing 2s steps(30, end); /* Sets the duration of the animation and the number of steps */
+  animation: typing 3s steps(30, end); /* Sets the duration of the animation and the number of steps */
 }
