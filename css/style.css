@@ -120,9 +120,10 @@ p {
   background-color: #66bfbf;
   padding: 10px;
 }
-.pro {
-  text-decoration: underline;
+.typewriter-text .pro {
+  text-decoration: underline; /* Applies the underline style to the text with the .pro class */
 }
+
 .textwidth30 {
   margin: auto;
   width: 30%;
