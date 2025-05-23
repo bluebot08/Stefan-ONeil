@@ -1,159 +1,427 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Stefan O'Neil</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="icon" href="favicon.ico" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Kaisei+HarunoUmi&family=Kaisei+Tokumin&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <!-- Heading Section -->
-    <div class="top-container">
-      <img class="top-cloud" src="images/cloud.png" alt="cloud-img" />
-      <h1>I'm Stefan</h1>
-      <h2 class="typewriter-text">A <span class="pro">pro</span>grammer</h2>
-      <img class="bottom-cloud" src="images/cloud.png" alt="cloud-img" />
-    </div>
-
-    <!-- Expanding Card Section Showing Skills -->
-    <div class="expanding-panels">
-      <div
-        class="panel active"
-        style="
-          background-image: url('https://images.unsplash.com/photo-1518773553398-650c184e0bb3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80');
-        "
-      >
-        <h3>HTML</h3>
-      </div>
-      <div
-        class="panel"
-        style="
-          background-image: url('https://images.unsplash.com/photo-1523437113738-bbd3cc89fb19?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80');
-        "
-      >
-        <h3>CSS</h3>
-      </div>
-      <div
-        class="panel"
-        style="
-          background-image: url('https://images.unsplash.com/photo-1550063873-ab792950096b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80');
-        "
-      >
-        <h3>JavaScript</h3>
-      </div>
-      <div
-        class="panel"
-        style="
-          background-image: url('https://images.unsplash.com/photo-1522542550221-31fd19575a2d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80');
-        "
-      >
-        <h3>Web Design</h3>
-      </div>
-    </div>
-    <small>Touch the above images to see my skill areas</small>
-
-    <!-- Middle section with content information about my skills -->
-    <div class="middle-container">
-      <div class="profile">
-        <img src="images/the_creation_of_stefan.png" alt="A picture of me" />
-        <h2>Hello.</h2>
-        <p class="textwidth30">
-          My name is Stefan and I'm a web developer living in Tokyo.
-        </p>
-      </div>
-      <hr />
-      <div class="skills">
-        <h2>My Skills.</h2>
-        <div class="skill-row">
-          <img
-            class="codeimg"
-            src="images/web-development.png"
-            alt="A web coding window"
-          />
-          <h3>Front-End Web Developer</h3>
-          <p>
-            I am a front-end web developer who can help you make the website of
-            your dreams or take a second look at one you already have. I am
-            skilled in the use of front-end technologies such as HTML, CSS, and
-            Javascript along with different frameworks.
-          </p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stefan O'Neil • AI Solutions Engineer</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono:wght@400&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+</head>
+<body>
+    <!-- Matrix Rain Loading Screen -->
+    <div id="matrix-loader" class="matrix-loader">
+        <canvas id="matrix-canvas"></canvas>
+        <div class="loading-text">
+            <div class="glitch" data-text="INITIALIZING NEURAL NETWORK">INITIALIZING NEURAL NETWORK</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
         </div>
-        <div class="skill-row">
-          <img
-            class="gameimg"
-            src="images/game-development.png"
-            alt="A game coding window"
-          />
-          <h3>About Me</h3>
-          <p>
-            Detail-oriented Management Information Systems graduate with
-            experience in derivatives trading, Education and financial analysis.
-            Skilled in programming, computer networking, system architecture,
-            and troubleshooting.
-          </p>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content" class="main-content hidden">
+        <!-- Cyberpunk Grid Background -->
+        <div class="cyber-grid"></div>
+        
+        <!-- Navigation -->
+        <nav class="cyber-nav">
+            <div class="nav-brand">
+                <span class="glitch" data-text="S.O'NEIL">S.O'NEIL</span>
+            </div>
+            <div class="nav-links">
+                <a href="#terminal" class="nav-link">TERMINAL</a>
+                <a href="#projects" class="nav-link">PROJECTS</a>
+                <a href="#about" class="nav-link">ABOUT</a>
+                <a href="#contact" class="nav-link">CONNECT</a>
+            </div>
+            <div class="theme-toggle">
+                <button id="theme-toggle" class="cyber-btn-small">
+                    <span id="theme-icon">🔋</span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="glitch hero-name" data-text="STEFAN O'NEIL">STEFAN O'NEIL</span>
+                </h1>
+                <div class="hero-subtitle">
+                    <span class="typing-text">AI SOLUTIONS ENGINEER</span>
+                    <span class="cursor">|</span>
+                </div>
+                <div class="hero-location">
+                    <span class="location-marker">📍</span>
+                    <span class="location-text">TOKYO • JAPAN</span>
+                </div>
+                <div class="hero-description">
+                    <p>Developing applications that leverage LLM agents to accomplish what was previously impossible</p>
+                </div>
+                <button class="cyber-btn access-btn" onclick="scrollToTerminal()">
+                    <span>ACCESS SYSTEM</span>
+                    <div class="cyber-btn-glow"></div>
+                </button>
+            </div>
+            
+            <!-- Floating Particles -->
+            <div class="particles-container">
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+                <div class="particle"></div>
+            </div>
+        </section>
+
+        <!-- Terminal Section -->
+        <section id="terminal" class="terminal-section">
+            <div class="section-header">
+                <h2 class="section-title">SYSTEM INTERFACE</h2>
+                <div class="section-subtitle">Interactive command terminal</div>
+            </div>
+            
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="terminal-btn red"></span>
+                        <span class="terminal-btn yellow"></span>
+                        <span class="terminal-btn green"></span>
+                    </div>
+                    <div class="terminal-title">stefan@tokyo:~$</div>
+                </div>
+                
+                <div class="terminal-body">
+                    <div id="terminal-output" class="terminal-output">
+                        <div class="terminal-line">
+                            <span class="prompt">stefan@tokyo:~$</span> <span class="command">whoami</span>
+                        </div>
+                        <div class="terminal-response">
+                            Stefan O'Neil - AI Solutions Engineer<br>
+                            Status: Online | Location: Tokyo, Japan<br>
+                            Specialization: LLM Agent Development<br>
+                            <br>
+                            Type 'help' for available commands...
+                        </div>
+                    </div>
+                    
+                    <div class="terminal-input-line">
+                        <span class="prompt">stefan@tokyo:~$</span>
+                        <input type="text" id="terminal-input" class="terminal-input" autocomplete="off" placeholder="Type a command...">
+                        <span class="cursor-terminal">|</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section">
+            <div class="section-header">
+                <h2 class="section-title">SYSTEM MODULES</h2>
+                <div class="section-subtitle">AI-powered applications & solutions</div>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- Project 1: Neural QA Matrix -->
+                <div class="project-card" data-project="neural-qa">
+                    <div class="project-header">
+                        <div class="project-status">
+                            <span class="status-dot online"></span>
+                            <span class="status-text">ACTIVE</span>
+                        </div>
+                        <div class="project-id">#001</div>
+                    </div>
+                    
+                    <div class="project-icon">
+                        <div class="neural-network">
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="node"></div>
+                            <div class="connection"></div>
+                            <div class="connection"></div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="project-title">NEURAL QA MATRIX</h3>
+                    <p class="project-description">
+                        Advanced LLM agent system for comprehensive media content analysis, 
+                        accuracy verification, translation quality assessment, and functional QA testing.
+                    </p>
+                    
+                    <div class="project-tech">
+                        <span class="tech-tag">LLM AGENTS</span>
+                        <span class="tech-tag">CONTENT ANALYSIS</span>
+                        <span class="tech-tag">QA AUTOMATION</span>
+                    </div>
+                    
+                    <div class="project-actions">
+                        <button class="cyber-btn-outline" onclick="openProjectDemo('neural-qa')">
+                            DECRYPT MODULE
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 2: Lead Nexus System -->
+                <div class="project-card" data-project="lead-nexus">
+                    <div class="project-header">
+                        <div class="project-status">
+                            <span class="status-dot development"></span>
+                            <span class="status-text">DEVELOPMENT</span>
+                        </div>
+                        <div class="project-id">#002</div>
+                    </div>
+                    
+                    <div class="project-icon">
+                        <div class="data-flow">
+                            <div class="flow-node"></div>
+                            <div class="flow-line"></div>
+                            <div class="flow-node"></div>
+                            <div class="flow-line"></div>
+                            <div class="flow-node"></div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="project-title">LEAD NEXUS SYSTEM</h3>
+                    <p class="project-description">
+                        Integrated AI agent platform combining lead generation, customer relationship management, 
+                        and intelligent email automation in a unified ecosystem.
+                    </p>
+                    
+                    <div class="project-tech">
+                        <span class="tech-tag">AGENT ORCHESTRATION</span>
+                        <span class="tech-tag">CRM INTEGRATION</span>
+                        <span class="tech-tag">EMAIL AUTOMATION</span>
+                    </div>
+                    
+                    <div class="project-actions">
+                        <button class="cyber-btn-outline" onclick="openProjectDemo('lead-nexus')">
+                            DECRYPT MODULE
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 3: Portfolio Showcase -->
+                <div class="project-card" data-project="portfolio">
+                    <div class="project-header">
+                        <div class="project-status">
+                            <span class="status-dot online"></span>
+                            <span class="status-text">LIVE</span>
+                        </div>
+                        <div class="project-id">#003</div>
+                    </div>
+                    
+                    <div class="project-icon">
+                        <div class="hologram">
+                            <div class="holo-layer"></div>
+                            <div class="holo-layer"></div>
+                            <div class="holo-layer"></div>
+                        </div>
+                    </div>
+                    
+                    <h3 class="project-title">CYBERPUNK PORTFOLIO</h3>
+                    <p class="project-description">
+                        Interactive portfolio with Matrix-inspired design, showcasing modern web development 
+                        techniques and immersive user experience design.
+                    </p>
+                    
+                    <div class="project-tech">
+                        <span class="tech-tag">THREE.JS</span>
+                        <span class="tech-tag">GSAP</span>
+                        <span class="tech-tag">CSS ANIMATIONS</span>
+                    </div>
+                    
+                    <div class="project-actions">
+                        <a href="https://github.com/bluebot08/Stefan-ONeil" target="_blank" class="cyber-btn-outline">
+                            VIEW SOURCE
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about-section">
+            <div class="section-header">
+                <h2 class="section-title">SYSTEM PROFILE</h2>
+                <div class="section-subtitle">Neural network architect & LLM specialist</div>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="profile-data">
+                        <div class="data-line">
+                            <span class="data-label">NAME:</span>
+                            <span class="data-value">Stefan O'Neil</span>
+                        </div>
+                        <div class="data-line">
+                            <span class="data-label">ROLE:</span>
+                            <span class="data-value">AI Solutions Engineer</span>
+                        </div>
+                        <div class="data-line">
+                            <span class="data-label">LOCATION:</span>
+                            <span class="data-value">Tokyo, Japan</span>
+                        </div>
+                        <div class="data-line">
+                            <span class="data-label">SPECIALTY:</span>
+                            <span class="data-value">LLM Agent Development</span>
+                        </div>
+                    </div>
+                    
+                    <div class="about-description">
+                        <p>
+                            I develop applications that leverage AI LLMs to accomplish tasks that were previously impossible. 
+                            Working as a programmer, I create both local and remotely hosted applications that push the 
+                            boundaries of what's achievable with artificial intelligence.
+                        </p>
+                        <p>
+                            My focus is on building practical AI solutions that solve real-world problems through 
+                            intelligent agent orchestration and advanced language model integration.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="skills-matrix">
+                    <h3 class="skills-title">SYSTEM CAPABILITIES</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <div class="skill-name">LLM Integration</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Agent Development</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">JavaScript/TypeScript</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="92"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Python</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="88"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Web Development</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="94"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">System Architecture</div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="87"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section">
+            <div class="section-header">
+                <h2 class="section-title">ESTABLISH CONNECTION</h2>
+                <div class="section-subtitle">Initialize communication protocol</div>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-method">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <div class="contact-label">PRIMARY CHANNEL</div>
+                            <a href="mailto:oneil.stefan@gmail.com" class="contact-value">oneil.stefan@gmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="network-nodes">
+                        <h3 class="nodes-title">NETWORK NODES</h3>
+                        <div class="nodes-grid">
+                            <a href="https://github.com/bluebot08" target="_blank" class="network-node">
+                                <div class="node-icon">⧉</div>
+                                <div class="node-label">GITHUB</div>
+                            </a>
+                            <a href="https://www.linkedin.com/in/stefanoneil" target="_blank" class="network-node">
+                                <div class="node-icon">◇</div>
+                                <div class="node-label">LINKEDIN</div>
+                            </a>
+                            <a href="https://twitter.com/StefanOneil" target="_blank" class="network-node">
+                                <div class="node-icon">◈</div>
+                                <div class="node-label">TWITTER</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-message">
+                    <h3 class="message-title">COLLABORATION PROTOCOLS</h3>
+                    <p>
+                        Interested in discussing AI solutions, LLM integration projects, or potential collaborations? 
+                        Let's connect and explore what's possible when human creativity meets artificial intelligence.
+                    </p>
+                    <a href="mailto:oneil.stefan@gmail.com" class="cyber-btn">
+                        <span>INITIATE CONTACT</span>
+                        <div class="cyber-btn-glow"></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-text">
+                    © 2025 Stefan O'Neil • AI Solutions Engineer • Tokyo, Japan
+                </div>
+                <div class="footer-status">
+                    <span class="status-dot online"></span>
+                    <span>System Online</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Project Modal -->
+    <div id="project-modal" class="project-modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title" class="modal-title"></h3>
+                <button class="modal-close" onclick="closeProjectModal()">&times;</button>
+            </div>
+            <div id="modal-body" class="modal-body">
+                <!-- Dynamic content will be loaded here -->
+            </div>
         </div>
-      </div>
-      <hr />
-
-      <!-- A slideshow of my projects with a link to more.
-      <div>
-        <h2>My Projects.</h2>
-        <a class="Contact_Button" href="pages/projects.html">VIEW MORE</a>
-      </div>
-      <hr /> -->
-
-      <!-- Recent Programming Progress -->
-      <div class="activity-metrics">
-        <h2>Activity Metrics</h2>
-        <a href="https://wakatime.com"
-          ><img
-            class="metric-img"
-            src="https://wakatime.com/share/@Bluebot/f0fc22bc-daaf-450d-8283-0cbf41bbbb66.png"
-        /></a>
-        <br />
-        <a class="Contact_Button" href="pages/metrics.html">VIEW MORE</a>
-      </div>
-      <hr />
-
-      <!-- Call to action  -->
-      <div>
-        <h2>Get In Touch</h2>
-        <h3>
-          Please tell me about any interesting opportunities or ideas you have.
-        </h3>
-        <p class="textwidth40">
-          Below is a link to my e-mail as well as my Github where you can see my
-          work. I also have links to some of my social media profiles.
-        </p>
-        <a class="Contact_Button" href="mailto:oneil.stefan@gmail.com"
-          >CONTACT ME</a
-        >
-      </div>
+        <div class="modal-backdrop" onclick="closeProjectModal()"></div>
     </div>
 
-    <!-- Other locations and footer -->
-    <div class="bottom-container">
-      <a class="footer-link" href="https://github.com/bluebot08">Github</a>
-      <a class="footer-link" href="https://www.linkedin.com/in/stefanoneil"
-        >LinkedIn</a
-      >
-      <a class="footer-link" href="https://twitter.com/StefanOneil">Twitter</a>
-      <p class="copyrighttxt">© 2023 Stefan O'Neil.</p>
-      Icons made by
-      <a href="https://www.flaticon.com/authors/flat-icons" title="Flat Icons"
-        >Flat Icons</a
-      >
-      from
-      <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+    <!-- Konami Code Easter Egg -->
+    <div id="easter-egg" class="easter-egg hidden">
+        <div class="easter-egg-content">
+            <div class="glitch" data-text="WELCOME TO THE MATRIX">WELCOME TO THE MATRIX</div>
+            <p>You found the secret! 🕶️</p>
+            <button onclick="closeEasterEgg()" class="cyber-btn-small">CLOSE</button>
+        </div>
     </div>
-    <script src="script.js"></script>
-  </body>
+
+    <!-- Scripts -->
+    <script src="js/matrix-rain.js"></script>
+    <script src="js/terminal.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+</body>
 </html>
